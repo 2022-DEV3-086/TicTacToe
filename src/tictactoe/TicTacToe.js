@@ -1,5 +1,6 @@
 import "./TicTacToe.css";
 import { Constants } from "../constants/Constants";
+import Board from "../board/Board";
 
 const TicTacToe = () => {
   return (
@@ -7,6 +8,7 @@ const TicTacToe = () => {
       <div data-testid="header" className="header">
         {Constants.TITLE}
       </div>
+      <Board />
     </div>
   );
 };

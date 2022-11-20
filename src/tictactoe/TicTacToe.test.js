@@ -9,4 +9,10 @@ describe("TicTacToe component", () => {
     expect(header).toBeInTheDocument();
     expect(header.textContent).toBe(TestConstants.TITLE);
   });
+
+  test("should display the board", () => {
+    render(<TicTacToe />);
+    const board = screen.getByTestId("board");
+    expect(board).toBeInTheDocument();
+  });
 });

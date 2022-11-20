@@ -1,0 +1,19 @@
+.board {
+  margin-top: 40px;
+  width: 294px;
+  height: 294px;
+  border: 1px solid black;
+  background-color: lightgray;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tile {
+  width: 98px;
+  height: 98px;
+  border: 1px solid white;
+  background-color: var(--theme-color);
+  float: left;
+  font-size: 40px;
+  cursor: pointer;
+}
