@@ -1,0 +1,22 @@
+:root {
+  --theme-color: #1c957b;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  text-align: center;
+  margin-top: 10px;
+  padding-bottom: 20px;
+  width: 394px;
+  min-height: 320px;
+  border: 1px solid var(--theme-color);
+}
+.header {
+  text-align: center;
+  width: 100%;
+  padding-top: 25px;
+  min-height: 50px;
+  font-size: 32px;
+  font-weight: lighter;
+  color: white;
+  background-color: var(--theme-color);
+}
