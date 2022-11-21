@@ -26,12 +26,20 @@ describe("The TicTacToe game works fine when", () => {
     tiles = screen.queryAllByTestId("tile");
   });
 
+  const testTheMarkOnClicking = (tile, expectedMarking) => {
+    fireEvent.click(tile);
+    expect(tile.textContent).toBe(expectedMarking);
+  };
+
+  const testTheMarkOf = (tiles, expectedMarking) => {
+    tiles.forEach((tile) => {
+      expect(tile.textContent).toBe(expectedMarking);
+    });
+  };
+
   test("the first tile should be marked as X, upon clicking", () => {
     const [firstLeftTile, ...remainingTiles] = tiles;
-    fireEvent.click(firstLeftTile);
-    expect(firstLeftTile.textContent).toBe("X");
-    remainingTiles.forEach((tile) => {
-      expect(tile.textContent).toBe(TestConstants.EMPTY);
-    });
+    testTheMarkOnClicking(firstLeftTile, "X");
+    testTheMarkOf(remainingTiles, TestConstants.EMPTY);
   });
 });
