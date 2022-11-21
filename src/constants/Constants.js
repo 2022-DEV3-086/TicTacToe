@@ -14,3 +14,9 @@ export const Constants = {
   MIDDLE_ROW_WINNING_POSITIONS: [3, 4, 5],
   BOTTOM_ROW_WINNING_POSITIONS: [6, 7, 8],
 };
+
+export const horizontalWinningPositions = [
+  Constants.TOP_ROW_WINNING_POSITIONS,
+  Constants.MIDDLE_ROW_WINNING_POSITIONS,
+  Constants.BOTTOM_ROW_WINNING_POSITIONS,
+];

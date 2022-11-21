@@ -1,5 +1,5 @@
 import "./TicTacToe.css";
-import { Constants } from "../constants/Constants";
+import { Constants, horizontalWinningPositions } from "../constants/Constants";
 import Board from "../board/Board";
 import { useState, useEffect } from "react";
 import Status from "../status/Status";
@@ -42,22 +42,23 @@ const TicTacToe = () => {
     setCurrentPlayer(currentPlayer === PLAYER1 ? PLAYER2 : PLAYER1);
   };
 
+  const thePlayerHasMarkedAllPositionsIn = (
+    firstPosition,
+    secondPosition,
+    thirdPosition
+  ) => {
+    if (
+      tiles[firstPosition] &&
+      tiles[firstPosition] === tiles[secondPosition] &&
+      tiles[firstPosition] === tiles[thirdPosition]
+    ) {
+      return true;
+    }
+  };
+
   const verifyGameCompletion = () => {
-    [
-      Constants.TOP_ROW_WINNING_POSITIONS,
-      Constants.MIDDLE_ROW_WINNING_POSITIONS,
-      Constants.BOTTOM_ROW_WINNING_POSITIONS,
-    ].forEach((winningRow) => {
-      const [
-        firstMarkingPosition,
-        secondMarkingPosition,
-        thirdMarkingPosition,
-      ] = winningRow;
-      if (
-        tiles[firstMarkingPosition] &&
-        tiles[firstMarkingPosition] === tiles[secondMarkingPosition] &&
-        tiles[firstMarkingPosition] === tiles[thirdMarkingPosition]
-      ) {
+    horizontalWinningPositions.forEach((winningRow) => {
+      if (thePlayerHasMarkedAllPositionsIn(...winningRow)) {
         setHasWinner(true);
         return;
       }
