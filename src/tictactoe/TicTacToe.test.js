@@ -102,4 +102,10 @@ describe("The TicTacToe game works fine when", () => {
       GameData.sameMarkingsFromleftTopToRightBottomDiagonal
     );
   });
+
+  test("declare a player as winner,if he scores from right top to left bottom diagonal winning position", () => {
+    markThePositionsAndCheckTheWinner(
+      GameData.sameMarkingsFromrightTopToLeftBottomDiagonal
+    );
+  });
 });
