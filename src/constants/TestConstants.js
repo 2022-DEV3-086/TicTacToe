@@ -17,4 +17,8 @@ export const GameData = {
     POSITIONS: [0, 5, 1, 7, 2],
     WINNER: TestConstants.PLAYER1_TITLE,
   },
+  sameMarkingsOnMiddleRow: {
+    POSITIONS: [0, 3, 7, 4, 6, 5],
+    WINNER: TestConstants.PLAYER2_TITLE,
+  },
 };

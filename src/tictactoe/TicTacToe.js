@@ -43,16 +43,24 @@ const TicTacToe = () => {
   };
 
   const verifyGameCompletion = () => {
-    const [firstMarkingPosition, secondMarkingPosition, thirdMarkingPosition] =
-      Constants.TOP_ROW_WINNING_POSITIONS;
-    if (
-      tiles[firstMarkingPosition] &&
-      tiles[firstMarkingPosition] === tiles[secondMarkingPosition] &&
-      tiles[firstMarkingPosition] === tiles[thirdMarkingPosition]
-    ) {
-      setHasWinner(true);
-      return;
-    }
+    [
+      Constants.TOP_ROW_WINNING_POSITIONS,
+      Constants.MIDDLE_ROW_WINNING_POSITIONS,
+    ].forEach((winningRow) => {
+      const [
+        firstMarkingPosition,
+        secondMarkingPosition,
+        thirdMarkingPosition,
+      ] = winningRow;
+      if (
+        tiles[firstMarkingPosition] &&
+        tiles[firstMarkingPosition] === tiles[secondMarkingPosition] &&
+        tiles[firstMarkingPosition] === tiles[thirdMarkingPosition]
+      ) {
+        setHasWinner(true);
+        return;
+      }
+    });
   };
 
   useEffect(() => {

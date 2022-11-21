@@ -11,4 +11,5 @@ export const Constants = {
   MARK_REQUEST_MESSAGE: "has to mark next",
   WINNER_DECLARATION_MESSAGE: "won the game!",
   TOP_ROW_WINNING_POSITIONS: [0, 1, 2],
+  MIDDLE_ROW_WINNING_POSITIONS: [3, 4, 5],
 };

@@ -70,4 +70,14 @@ describe("The TicTacToe game works fine when", () => {
     const status = screen.getByTestId("status");
     expect(status.textContent).toBe(`${WINNER} ${WINNER_DECLARATION_MESSAGE}`);
   });
+
+  test("declare a player as winner,if he scores middle row winning position", () => {
+    const { POSITIONS, WINNER } = GameData.sameMarkingsOnMiddleRow;
+    const { WINNER_DECLARATION_MESSAGE } = TestConstants;
+    POSITIONS.forEach((position) => {
+      fireEvent.click(tiles[position]);
+    });
+    const status = screen.getByTestId("status");
+    expect(status.textContent).toBe(`${WINNER} ${WINNER_DECLARATION_MESSAGE}`);
+  });
 });
