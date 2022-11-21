@@ -1,24 +1,19 @@
 import "./Board.css";
-import { Constants } from "../constants/Constants";
 
-const Board = () => {
-  const displayTiles = () => {
-    let tiles = [];
-    for (
-      let tilePosition = 0;
-      tilePosition < Constants.NUMBER_OF_TILES_ON_THE_BOARD;
-      tilePosition++
-    ) {
-      tiles.push(
-        <button data-testid="tile" className="tile" key={tilePosition}></button>
+const Board = ({ tiles }) => {
+  const displayTiles = (tiles) => {
+    return tiles.map((value, position) => {
+      return (
+        <button data-testid="tile" className="tile" key={position}>
+          {value}
+        </button>
       );
-    }
-    return tiles;
+    });
   };
 
   return (
     <div data-testid="board" className="board">
-      {displayTiles()}
+      {displayTiles(tiles)}
     </div>
   );
 };
