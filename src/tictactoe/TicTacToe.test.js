@@ -42,4 +42,11 @@ describe("The TicTacToe game works fine when", () => {
     testTheMarkOnClicking(firstLeftTile, "X");
     testTheMarkOf(remainingTiles, TestConstants.EMPTY);
   });
+
+  test("tiles display X and 0 alternatively, upon clicking", () => {
+    const [firstLeftTile, firstMiddleTile, ...remainingTiles] = tiles;
+    testTheMarkOnClicking(firstLeftTile, "X");
+    testTheMarkOnClicking(firstMiddleTile, "0");
+    testTheMarkOf(remainingTiles, TestConstants.EMPTY);
+  });
 });

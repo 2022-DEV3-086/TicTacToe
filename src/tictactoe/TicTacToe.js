@@ -8,8 +8,13 @@ const TicTacToe = () => {
     Array(Constants.NUMBER_OF_TILES_ON_THE_BOARD).fill(Constants.EMPTY)
   );
 
+  const [currentPlayer, setCurrentPlayer] = useState(true);
+
   const markOntheDesiredPosition = (currentPosition, desiredPosition, tile) => {
-    return currentPosition === desiredPosition ? "X" : tile;
+    if (currentPosition === desiredPosition) {
+      return currentPlayer === Constants.PLAYER1 ? "X" : "0";
+    }
+    return tile;
   };
 
   const markOnTheTileAt = (desiredPosition) => {
@@ -17,6 +22,15 @@ const TicTacToe = () => {
       return markOntheDesiredPosition(position, desiredPosition, tile);
     });
     setTiles(tilesAfterMarking);
+    switchPlayer();
+  };
+
+  const switchPlayer = () => {
+    setCurrentPlayer(
+      currentPlayer === Constants.PLAYER1
+        ? Constants.PLAYER2
+        : Constants.PLAYER1
+    );
   };
 
   return (
