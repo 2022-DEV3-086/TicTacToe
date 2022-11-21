@@ -61,14 +61,16 @@ const TicTacToe = () => {
   };
 
   const verifyGameCompletion = () => {
-    [...horizontalWinningPositions, ...verticalWinningPositions].forEach(
-      (winningRow) => {
-        if (thePlayerHasMarkedAllPositionsIn(...winningRow)) {
-          setHasWinner(true);
-          return;
-        }
+    [
+      ...horizontalWinningPositions,
+      ...verticalWinningPositions,
+      Constants.LEFT_TOP_TO_RIGHT_BOTTOM_DIAGONAL_WINNING_POSITIONS,
+    ].forEach((winningRow) => {
+      if (thePlayerHasMarkedAllPositionsIn(...winningRow)) {
+        setHasWinner(true);
+        return;
       }
-    );
+    });
   };
 
   useEffect(() => {

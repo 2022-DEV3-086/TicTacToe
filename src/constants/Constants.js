@@ -16,6 +16,7 @@ export const Constants = {
   LEFT_COLUMN_WINNING_POSITIONS: [0, 3, 6],
   MIDDLE_COLUMN_WINNING_POSITIONS: [1, 4, 7],
   RIGHT_COLUMN_WINNING_POSITIONS: [2, 5, 8],
+  LEFT_TOP_TO_RIGHT_BOTTOM_DIAGONAL_WINNING_POSITIONS: [0, 4, 8],
 };
 
 export const horizontalWinningPositions = [
