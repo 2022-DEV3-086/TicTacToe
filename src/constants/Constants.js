@@ -12,4 +12,5 @@ export const Constants = {
   WINNER_DECLARATION_MESSAGE: "won the game!",
   TOP_ROW_WINNING_POSITIONS: [0, 1, 2],
   MIDDLE_ROW_WINNING_POSITIONS: [3, 4, 5],
+  BOTTOM_ROW_WINNING_POSITIONS: [6, 7, 8],
 };

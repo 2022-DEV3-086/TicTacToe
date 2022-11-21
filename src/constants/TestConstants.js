@@ -21,4 +21,8 @@ export const GameData = {
     POSITIONS: [0, 3, 7, 4, 6, 5],
     WINNER: TestConstants.PLAYER2_TITLE,
   },
+  sameMarkingsOnBottomRow: {
+    POSITIONS: [6, 0, 8, 3, 7],
+    WINNER: TestConstants.PLAYER1_TITLE,
+  },
 };

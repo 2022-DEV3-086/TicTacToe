@@ -46,6 +46,7 @@ const TicTacToe = () => {
     [
       Constants.TOP_ROW_WINNING_POSITIONS,
       Constants.MIDDLE_ROW_WINNING_POSITIONS,
+      Constants.BOTTOM_ROW_WINNING_POSITIONS,
     ].forEach((winningRow) => {
       const [
         firstMarkingPosition,
