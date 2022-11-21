@@ -1,13 +1,24 @@
 import "./Status.css";
 import { Constants } from "../constants/Constants";
 
-const Status = ({ player }) => {
-  const { PLAYER1, PLAYER1_TITLE, PLAYER2_TITLE, MARK_REQUEST_MESSAGE } =
-    Constants;
+const Status = ({ player, hasWinner }) => {
+  const {
+    PLAYER1,
+    PLAYER1_TITLE,
+    PLAYER2_TITLE,
+    MARK_REQUEST_MESSAGE,
+    WINNER_DECLARATION_MESSAGE,
+  } = Constants;
   return (
-    <div data-testid="status" className="status">{`${
-      player === PLAYER1 ? PLAYER1_TITLE : PLAYER2_TITLE
-    } ${MARK_REQUEST_MESSAGE}`}</div>
+    <div data-testid="status" className="status">
+      {hasWinner
+        ? `${
+            player === PLAYER1 ? PLAYER2_TITLE : PLAYER1_TITLE
+          } ${WINNER_DECLARATION_MESSAGE}`
+        : `${
+            player === PLAYER1 ? PLAYER1_TITLE : PLAYER2_TITLE
+          } ${MARK_REQUEST_MESSAGE}`}
+    </div>
   );
 };
 

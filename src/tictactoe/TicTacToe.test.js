@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { TestConstants } from "../constants/TestConstants";
+import { TestConstants, GameData } from "../constants/TestConstants";
 import TicTacToe from "./TicTacToe";
 
 describe("TicTacToe component", () => {
@@ -59,5 +59,15 @@ describe("The TicTacToe game works fine when", () => {
     const [firstLeftTile, ...remainingTiles] = tiles;
     fireEvent.click(firstLeftTile);
     expect(firstLeftTile).toHaveAttribute("disabled");
+  });
+
+  test("declare a player as winner,if he scores top row winning position", () => {
+    const { POSITIONS, WINNER } = GameData.sameMarkingsOnTopRow;
+    const { WINNER_DECLARATION_MESSAGE } = TestConstants;
+    POSITIONS.forEach((position) => {
+      fireEvent.click(tiles[position]);
+    });
+    const status = screen.getByTestId("status");
+    expect(status.textContent).toBe(`${WINNER} ${WINNER_DECLARATION_MESSAGE}`);
   });
 });

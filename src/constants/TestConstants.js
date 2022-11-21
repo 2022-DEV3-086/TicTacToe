@@ -9,4 +9,12 @@ export const TestConstants = {
   PLAYER2_SYMBOL: "0",
   PLAYER2_TITLE: "Player 2",
   MARK_REQUEST_MESSAGE: "has to mark next",
+  WINNER_DECLARATION_MESSAGE: "won the game!",
+};
+
+export const GameData = {
+  sameMarkingsOnTopRow: {
+    POSITIONS: [0, 5, 1, 7, 2],
+    WINNER: TestConstants.PLAYER1_TITLE,
+  },
 };

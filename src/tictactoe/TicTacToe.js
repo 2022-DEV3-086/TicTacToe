@@ -1,7 +1,7 @@
 import "./TicTacToe.css";
 import { Constants } from "../constants/Constants";
 import Board from "../board/Board";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Status from "../status/Status";
 
 const TicTacToe = () => {
@@ -20,6 +20,8 @@ const TicTacToe = () => {
   );
 
   const [currentPlayer, setCurrentPlayer] = useState(true);
+
+  const [hasWinner, setHasWinner] = useState(false);
 
   const markOntheDesiredPosition = (currentPosition, desiredPosition, tile) => {
     if (currentPosition === desiredPosition) {
@@ -40,13 +42,30 @@ const TicTacToe = () => {
     setCurrentPlayer(currentPlayer === PLAYER1 ? PLAYER2 : PLAYER1);
   };
 
+  const verifyGameCompletion = () => {
+    const [firstMarkingPosition, secondMarkingPosition, thirdMarkingPosition] =
+      Constants.TOP_ROW_WINNING_POSITIONS;
+    if (
+      tiles[firstMarkingPosition] &&
+      tiles[firstMarkingPosition] === tiles[secondMarkingPosition] &&
+      tiles[firstMarkingPosition] === tiles[thirdMarkingPosition]
+    ) {
+      setHasWinner(true);
+      return;
+    }
+  };
+
+  useEffect(() => {
+    verifyGameCompletion();
+  }, [tiles]);
+
   return (
     <div className="container">
       <div data-testid="header" className="header">
         {TITLE}
       </div>
       <Board tiles={tiles} markOnTheTileAt={markOnTheTileAt} />
-      <Status player={currentPlayer} />
+      <Status player={currentPlayer} hasWinner={hasWinner} />
     </div>
   );
 };

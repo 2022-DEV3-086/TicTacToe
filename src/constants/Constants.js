@@ -9,4 +9,6 @@ export const Constants = {
   PLAYER2_SYMBOL: "0",
   PLAYER2_TITLE: "Player 2",
   MARK_REQUEST_MESSAGE: "has to mark next",
+  WINNER_DECLARATION_MESSAGE: "won the game!",
+  TOP_ROW_WINNING_POSITIONS: [0, 1, 2],
 };
