@@ -39,14 +39,14 @@ describe("The TicTacToe game works fine when", () => {
 
   test("the first tile should be marked as X, upon clicking", () => {
     const [firstLeftTile, ...remainingTiles] = tiles;
-    testTheMarkOnClicking(firstLeftTile, "X");
+    testTheMarkOnClicking(firstLeftTile, TestConstants.PLAYER1_SYMBOL);
     testTheMarkOf(remainingTiles, TestConstants.EMPTY);
   });
 
   test("tiles display X and 0 alternatively, upon clicking", () => {
     const [firstLeftTile, firstMiddleTile, ...remainingTiles] = tiles;
-    testTheMarkOnClicking(firstLeftTile, "X");
-    testTheMarkOnClicking(firstMiddleTile, "0");
+    testTheMarkOnClicking(firstLeftTile, TestConstants.PLAYER1_SYMBOL);
+    testTheMarkOnClicking(firstMiddleTile, TestConstants.PLAYER2_SYMBOL);
     testTheMarkOf(remainingTiles, TestConstants.EMPTY);
   });
 });

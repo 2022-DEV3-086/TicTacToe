@@ -12,7 +12,9 @@ const TicTacToe = () => {
 
   const markOntheDesiredPosition = (currentPosition, desiredPosition, tile) => {
     if (currentPosition === desiredPosition) {
-      return currentPlayer === Constants.PLAYER1 ? "X" : "0";
+      return currentPlayer === Constants.PLAYER1
+        ? Constants.PLAYER1_SYMBOL
+        : Constants.PLAYER2_SYMBOL;
     }
     return tile;
   };
