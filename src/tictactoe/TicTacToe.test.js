@@ -88,4 +88,8 @@ describe("The TicTacToe game works fine when", () => {
   test("declare a player as winner,if he scores left column winning position", () => {
     markThePositionsAndCheckTheWinner(GameData.sameMarkingsOnLeftColumn);
   });
+
+  test("declare a player as winner,if he scores middle column winning position", () => {
+    markThePositionsAndCheckTheWinner(GameData.sameMarkingsOnMiddleColumn);
+  });
 });

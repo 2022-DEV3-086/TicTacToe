@@ -29,4 +29,8 @@ export const GameData = {
     POSITIONS: [6, 5, 0, 4, 3],
     WINNER: TestConstants.PLAYER1_TITLE,
   },
+  sameMarkingsOnMiddleColumn: {
+    POSITIONS: [0, 1, 5, 4, 3, 7],
+    WINNER: TestConstants.PLAYER2_TITLE,
+  },
 };
