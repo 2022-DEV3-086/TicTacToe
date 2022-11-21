@@ -57,7 +57,10 @@ const TicTacToe = () => {
   };
 
   const verifyGameCompletion = () => {
-    horizontalWinningPositions.forEach((winningRow) => {
+    [
+      ...horizontalWinningPositions,
+      Constants.LEFT_COLUMN_WINNING_POSITIONS,
+    ].forEach((winningRow) => {
       if (thePlayerHasMarkedAllPositionsIn(...winningRow)) {
         setHasWinner(true);
         return;
