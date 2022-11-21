@@ -49,4 +49,10 @@ describe("The TicTacToe game works fine when", () => {
     testTheMarkOnClicking(firstMiddleTile, TestConstants.PLAYER2_SYMBOL);
     testTheMarkOf(remainingTiles, TestConstants.EMPTY);
   });
+
+  test("a tile cannot be marked again, if it is already marked.", () => {
+    const [firstLeftTile, ...remainingTiles] = tiles;
+    fireEvent.click(firstLeftTile);
+    expect(firstLeftTile).toHaveAttribute("disabled");
+  });
 });

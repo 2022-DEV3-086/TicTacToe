@@ -1,4 +1,5 @@
 import "./Board.css";
+import { Constants } from "../constants/Constants";
 
 const Board = ({ tiles, markOnTheTileAt }) => {
   const displayTiles = (tiles) => {
@@ -9,6 +10,7 @@ const Board = ({ tiles, markOnTheTileAt }) => {
           className="tile"
           key={position}
           value={position}
+          disabled={value !== Constants.EMPTY}
           onClick={(event) => markOnTheTileAt(parseInt(event.target.value))}
         >
           {value}
