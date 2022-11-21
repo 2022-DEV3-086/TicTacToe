@@ -17,6 +17,11 @@ describe("TicTacToe component", () => {
     const board = screen.getByTestId("board");
     expect(board).toBeInTheDocument();
   });
+
+  test("should display the status", () => {
+    const status = screen.getByTestId("status");
+    expect(status).toBeInTheDocument();
+  });
 });
 
 describe("The TicTacToe game works fine when", () => {

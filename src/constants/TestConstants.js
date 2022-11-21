@@ -4,6 +4,9 @@ export const TestConstants = {
   EMPTY: "",
   PLAYER1: true,
   PLAYER1_SYMBOL: "X",
+  PLAYER1_TITLE: "Player 1",
   PLAYER2: false,
   PLAYER2_SYMBOL: "0",
+  PLAYER2_TITLE: "Player 2",
+  MARK_REQUEST_MESSAGE: "has to mark next",
 };

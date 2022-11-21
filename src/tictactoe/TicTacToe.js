@@ -2,6 +2,7 @@ import "./TicTacToe.css";
 import { Constants } from "../constants/Constants";
 import Board from "../board/Board";
 import { useState } from "react";
+import Status from "../status/Status";
 
 const TicTacToe = () => {
   const {
@@ -45,6 +46,7 @@ const TicTacToe = () => {
         {TITLE}
       </div>
       <Board tiles={tiles} markOnTheTileAt={markOnTheTileAt} />
+      <Status player={currentPlayer} />
     </div>
   );
 };
