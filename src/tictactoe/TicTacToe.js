@@ -4,16 +4,27 @@ import Board from "../board/Board";
 import { useState } from "react";
 
 const TicTacToe = () => {
-  const [tiles] = useState(
+  const [tiles, setTiles] = useState(
     Array(Constants.NUMBER_OF_TILES_ON_THE_BOARD).fill(Constants.EMPTY)
   );
+
+  const markOntheDesiredPosition = (currentPosition, desiredPosition, tile) => {
+    return currentPosition === desiredPosition ? "X" : tile;
+  };
+
+  const markOnTheTileAt = (desiredPosition) => {
+    const tilesAfterMarking = tiles.map((tile, position) => {
+      return markOntheDesiredPosition(position, desiredPosition, tile);
+    });
+    setTiles(tilesAfterMarking);
+  };
 
   return (
     <div className="container">
       <div data-testid="header" className="header">
         {Constants.TITLE}
       </div>
-      <Board tiles={tiles} />
+      <Board tiles={tiles} markOnTheTileAt={markOnTheTileAt} />
     </div>
   );
 };

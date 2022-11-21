@@ -1,10 +1,16 @@
 import "./Board.css";
 
-const Board = ({ tiles }) => {
+const Board = ({ tiles, markOnTheTileAt }) => {
   const displayTiles = (tiles) => {
     return tiles.map((value, position) => {
       return (
-        <button data-testid="tile" className="tile" key={position}>
+        <button
+          data-testid="tile"
+          className="tile"
+          key={position}
+          value={position}
+          onClick={(event) => markOnTheTileAt(parseInt(event.target.value))}
+        >
           {value}
         </button>
       );
