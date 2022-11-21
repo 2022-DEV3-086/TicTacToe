@@ -42,6 +42,18 @@ describe("The TicTacToe game works fine when", () => {
     });
   };
 
+  const markThePositionsAndCheckTheWinner = ({
+    POSITIONS: positions,
+    WINNER: winner,
+  }) => {
+    const { WINNER_DECLARATION_MESSAGE } = TestConstants;
+    positions.forEach((position) => {
+      fireEvent.click(tiles[position]);
+    });
+    const status = screen.getByTestId("status");
+    expect(status.textContent).toBe(`${winner} ${WINNER_DECLARATION_MESSAGE}`);
+  };
+
   test("the first tile should be marked as X, upon clicking", () => {
     const [firstLeftTile, ...remainingTiles] = tiles;
     testTheMarkOnClicking(firstLeftTile, TestConstants.PLAYER1_SYMBOL);
@@ -62,22 +74,10 @@ describe("The TicTacToe game works fine when", () => {
   });
 
   test("declare a player as winner,if he scores top row winning position", () => {
-    const { POSITIONS, WINNER } = GameData.sameMarkingsOnTopRow;
-    const { WINNER_DECLARATION_MESSAGE } = TestConstants;
-    POSITIONS.forEach((position) => {
-      fireEvent.click(tiles[position]);
-    });
-    const status = screen.getByTestId("status");
-    expect(status.textContent).toBe(`${WINNER} ${WINNER_DECLARATION_MESSAGE}`);
+    markThePositionsAndCheckTheWinner(GameData.sameMarkingsOnTopRow);
   });
 
   test("declare a player as winner,if he scores middle row winning position", () => {
-    const { POSITIONS, WINNER } = GameData.sameMarkingsOnMiddleRow;
-    const { WINNER_DECLARATION_MESSAGE } = TestConstants;
-    POSITIONS.forEach((position) => {
-      fireEvent.click(tiles[position]);
-    });
-    const status = screen.getByTestId("status");
-    expect(status.textContent).toBe(`${WINNER} ${WINNER_DECLARATION_MESSAGE}`);
+    markThePositionsAndCheckTheWinner(GameData.sameMarkingsOnMiddleRow);
   });
 });
