@@ -90,7 +90,11 @@ const TicTacToe = () => {
       <div data-testid="header" className="header">
         {TITLE}
       </div>
-      <Board tiles={tiles} markOnTheTileAt={markOnTheTileAt} />
+      <Board
+        tiles={tiles}
+        markOnTheTileAt={markOnTheTileAt}
+        hasWinner={hasWinner}
+      />
       <Status player={currentPlayer} hasWinner={hasWinner} draw={draw} />
     </div>
   );

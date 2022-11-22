@@ -124,4 +124,13 @@ describe("The TicTacToe game works fine when", () => {
   test("declare the game as draw,if all tiles are marked and no player won the game", () => {
     markAllPositionsAndCheckForDraw(GameData.gameDrawMarkings);
   });
+
+  test("all tiles on the board get disabled, if there is a winner", () => {
+    markThePositionsAndCheckTheWinner(
+      GameData.sameMarkingsFromrightTopToLeftBottomDiagonal
+    );
+    tiles.forEach((tile) => {
+      expect(tile).toHaveAttribute("disabled");
+    });
+  });
 });
