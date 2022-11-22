@@ -30,3 +30,34 @@ This is a game project developed in ReactJS that helps users to play Tic Tac Toe
 
 5. Run `npm run build` for building the app for production to the `build` folder.
 
+6. Run `npm run coverage` for obtaining test coverage report.
+   
+### Test Coverage Report
+>    
+>     PASS  src/tictactoe/TicTacToe.test.js
+>     PASS  src/board/Board.test.js
+>     PASS  src/status/Status.test.js
+>    
+>    File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+>    -------------------|---------|----------|---------|---------|-------------------
+>    All files          |     100 |      100 |     100 |     100 |                   
+>     board             |     100 |      100 |     100 |     100 |                   
+>      Board.js         |     100 |      100 |     100 |     100 |                   
+>     constants         |     100 |      100 |     100 |     100 |                   
+>      Constants.js     |     100 |      100 |     100 |     100 |                   
+>      TestConstants.js |     100 |      100 |     100 |     100 |                   
+>     status            |     100 |      100 |     100 |     100 |                   
+>      Status.js        |     100 |      100 |     100 |     100 |                   
+>     tictactoe         |     100 |      100 |     100 |     100 |                   
+>      TicTacToe.js     |     100 |      100 |     100 |     100 |                   
+>    
+>    
+>    Test Suites: 3 passed, 3 total 
+> 
+>    Tests:       23 passed, 23 total 
+> 
+>    Snapshots:   0 total  
+> 
+>    Time:        0.928 s, estimated 1 s  
+> 
+>    Ran all test suites.
