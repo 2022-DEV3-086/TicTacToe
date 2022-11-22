@@ -96,6 +96,9 @@ const TicTacToe = () => {
         hasWinner={hasWinner}
       />
       <Status player={currentPlayer} hasWinner={hasWinner} draw={draw} />
+      <button data-testid="reset" className="reset">
+        {Constants.RESET_BUTTON_TITLE}
+      </button>
     </div>
   );
 };

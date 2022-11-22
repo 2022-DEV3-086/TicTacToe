@@ -11,6 +11,7 @@ export const TestConstants = {
   MARK_REQUEST_MESSAGE: "has to mark next",
   WINNER_DECLARATION_MESSAGE: "won the game!",
   DRAW_DECLARATION_MESSAGE: "Game draw!",
+  RESET_BUTTON_TITLE: "Play again",
 };
 
 export const GameData = {

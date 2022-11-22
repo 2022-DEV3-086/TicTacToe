@@ -20,3 +20,12 @@
   color: white;
   background-color: var(--theme-color);
 }
+.reset {
+  width: 128px;
+  height: 48px;
+  border: 1px solid white;
+  background-color: var(--theme-color);
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}

@@ -22,6 +22,12 @@ describe("TicTacToe component", () => {
     const status = screen.getByTestId("status");
     expect(status).toBeInTheDocument();
   });
+
+  test("should show the reset button with title", () => {
+    const resetButton = screen.getByTestId("reset");
+    expect(resetButton).toBeInTheDocument();
+    expect(resetButton.textContent).toBe(TestConstants.RESET_BUTTON_TITLE);
+  });
 });
 
 describe("The TicTacToe game works fine when", () => {
@@ -123,6 +129,15 @@ describe("The TicTacToe game works fine when", () => {
 
   test("declare the game as draw,if all tiles are marked and no player won the game", () => {
     markAllPositionsAndCheckForDraw(GameData.gameDrawMarkings);
+  });
+
+  test("all tiles on the board get disabled, if there is a winner", () => {
+    markThePositionsAndCheckTheWinner(
+      GameData.sameMarkingsFromrightTopToLeftBottomDiagonal
+    );
+    tiles.forEach((tile) => {
+      expect(tile).toHaveAttribute("disabled");
+    });
   });
 
   test("all tiles on the board get disabled, if there is a winner", () => {
