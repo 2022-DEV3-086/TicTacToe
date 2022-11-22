@@ -10,6 +10,7 @@ export const TestConstants = {
   PLAYER2_TITLE: "Player 2",
   MARK_REQUEST_MESSAGE: "has to mark next",
   WINNER_DECLARATION_MESSAGE: "won the game!",
+  DRAW_DECLARATION_MESSAGE: "Game draw!",
 };
 
 export const GameData = {
@@ -44,5 +45,8 @@ export const GameData = {
   sameMarkingsFromrightTopToLeftBottomDiagonal: {
     POSITIONS: [0, 2, 1, 4, 5, 6],
     WINNER: TestConstants.PLAYER2_TITLE,
+  },
+  gameDrawMarkings: {
+    POSITIONS: [0, 1, 2, 3, 4, 6, 7, 8, 5],
   },
 };

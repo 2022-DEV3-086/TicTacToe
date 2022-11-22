@@ -108,4 +108,13 @@ describe("The TicTacToe game works fine when", () => {
       GameData.sameMarkingsFromrightTopToLeftBottomDiagonal
     );
   });
+
+  test("declare the game as draw,if all tiles are marked and no player won the game", () => {
+    const { DRAW_DECLARATION_MESSAGE } = TestConstants;
+    GameData.gameDrawMarkings.POSITIONS.forEach((position) => {
+      fireEvent.click(tiles[position]);
+    });
+    const status = screen.getByTestId("status");
+    expect(status.textContent).toBe(DRAW_DECLARATION_MESSAGE);
+  });
 });

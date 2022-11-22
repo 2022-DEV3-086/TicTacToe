@@ -27,6 +27,8 @@ const TicTacToe = () => {
 
   const [hasWinner, setHasWinner] = useState(false);
 
+  const [draw, setDraw] = useState(false);
+
   const markOntheDesiredPosition = (currentPosition, desiredPosition, tile) => {
     if (currentPosition === desiredPosition) {
       return currentPlayer === PLAYER1 ? PLAYER1_SYMBOL : PLAYER2_SYMBOL;
@@ -44,6 +46,10 @@ const TicTacToe = () => {
 
   const switchPlayer = () => {
     setCurrentPlayer(currentPlayer === PLAYER1 ? PLAYER2 : PLAYER1);
+  };
+
+  const allTilesMarked = () => {
+    return tiles.filter((value) => value === Constants.EMPTY).length === 0;
   };
 
   const thePlayerHasMarkedAllPositionsIn = (
@@ -72,6 +78,7 @@ const TicTacToe = () => {
         return;
       }
     });
+    setDraw(allTilesMarked());
   };
 
   useEffect(() => {
@@ -84,7 +91,7 @@ const TicTacToe = () => {
         {TITLE}
       </div>
       <Board tiles={tiles} markOnTheTileAt={markOnTheTileAt} />
-      <Status player={currentPlayer} hasWinner={hasWinner} />
+      <Status player={currentPlayer} hasWinner={hasWinner} draw={draw} />
     </div>
   );
 };
