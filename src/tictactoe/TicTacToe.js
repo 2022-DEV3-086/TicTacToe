@@ -85,6 +85,13 @@ const TicTacToe = () => {
     verifyGameCompletion();
   }, [tiles]);
 
+  const resetGame = () => {
+    setTiles(Array(9).fill(Constants.EMPTY));
+    setCurrentPlayer(Constants.PLAYER1);
+    setHasWinner(false);
+    setDraw(false);
+  };
+
   return (
     <div className="container">
       <div data-testid="header" className="header">
@@ -96,7 +103,7 @@ const TicTacToe = () => {
         hasWinner={hasWinner}
       />
       <Status player={currentPlayer} hasWinner={hasWinner} draw={draw} />
-      <button data-testid="reset" className="reset">
+      <button data-testid="reset" className="reset" onClick={resetGame}>
         {Constants.RESET_BUTTON_TITLE}
       </button>
     </div>

@@ -148,4 +148,20 @@ describe("The TicTacToe game works fine when", () => {
       expect(tile).toHaveAttribute("disabled");
     });
   });
+
+  test("the reset button resets the game", () => {
+    const tiles = screen.queryAllByTestId("tile");
+    for (const tile of tiles) {
+      fireEvent.click(tile);
+    }
+    const resetButton = screen.getByTestId("reset");
+    fireEvent.click(resetButton);
+    for (const tile of tiles) {
+      expect(tile.textContent).toBe(TestConstants.EMPTY);
+    }
+    const status = screen.getByTestId("status");
+    expect(status.textContent).toBe(
+      `${TestConstants.PLAYER1_TITLE} ${TestConstants.MARK_REQUEST_MESSAGE}`
+    );
+  });
 });
