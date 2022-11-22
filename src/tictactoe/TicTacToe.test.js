@@ -42,16 +42,28 @@ describe("The TicTacToe game works fine when", () => {
     });
   };
 
+  const markAllPositionsAndCheckTheExpectation = (positions, expectation) => {
+    positions.forEach((position) => {
+      fireEvent.click(tiles[position]);
+    });
+    const status = screen.getByTestId("status");
+    expect(status.textContent).toBe(expectation);
+  };
+
   const markThePositionsAndCheckTheWinner = ({
     POSITIONS: positions,
     WINNER: winner,
   }) => {
     const { WINNER_DECLARATION_MESSAGE } = TestConstants;
-    positions.forEach((position) => {
-      fireEvent.click(tiles[position]);
-    });
-    const status = screen.getByTestId("status");
-    expect(status.textContent).toBe(`${winner} ${WINNER_DECLARATION_MESSAGE}`);
+    markAllPositionsAndCheckTheExpectation(
+      positions,
+      `${winner} ${WINNER_DECLARATION_MESSAGE}`
+    );
+  };
+
+  const markAllPositionsAndCheckForDraw = ({ POSITIONS: positions }) => {
+    const { DRAW_DECLARATION_MESSAGE } = TestConstants;
+    markAllPositionsAndCheckTheExpectation(positions, DRAW_DECLARATION_MESSAGE);
   };
 
   test("the first tile should be marked as X, upon clicking", () => {
@@ -110,11 +122,6 @@ describe("The TicTacToe game works fine when", () => {
   });
 
   test("declare the game as draw,if all tiles are marked and no player won the game", () => {
-    const { DRAW_DECLARATION_MESSAGE } = TestConstants;
-    GameData.gameDrawMarkings.POSITIONS.forEach((position) => {
-      fireEvent.click(tiles[position]);
-    });
-    const status = screen.getByTestId("status");
-    expect(status.textContent).toBe(DRAW_DECLARATION_MESSAGE);
+    markAllPositionsAndCheckForDraw(GameData.gameDrawMarkings);
   });
 });
